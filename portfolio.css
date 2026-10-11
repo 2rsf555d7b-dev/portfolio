@@ -247,3 +247,11 @@ margin-top: 10px;
         width: 400px;
     }
 }
+@media (max-width: 390px) {
+    .daniel1 {
+        font-size: 3.4em;
+    }
+    .bernovskyi {
+        font-size: 3.4em;
+    }
+}
