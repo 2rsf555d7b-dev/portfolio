@@ -67,7 +67,7 @@
    cursor: pointer;
    transition: 1s;
 }
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .daniel {
         margin-right: 100px;
         margin-left: 10px;
