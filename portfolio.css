@@ -100,7 +100,6 @@ body {
 }
 .hello {
     margin-left: 20px;
-    margin-top: 50px;
     color: grey;
     font-size: 0.8em;
 }
@@ -181,7 +180,7 @@ margin-top: 10px;
     aspect-ratio: 4 / 5;
     justify-self: end;
     perspective: 1000px;
-    margin-right: 20px;
+    margin-right: 300px;
     margin-top: 50px;
 }
 .photo-layers {
@@ -199,23 +198,24 @@ margin-top: 10px;
     margin-right: 40px;
 }
 .frame-one {
-    inset: 5% 13% 18% -8%;
+    inset: 0% -20% 10% -40%;
     transform: translate3d(-18px, -20px, -70px);
     z-index: 3;
+    border-right: none;
 }
 .frame-two {
-    inset: 2% -1% 27% 1%;
+    inset: 2% -20% 27% 1%;
     transform: skewY(-20deg);
     z-index: 4;
     margin-right: 200px;
-    width: min(70%, 290px);
+    width: min(90%, 310px);
     opacity: 0.5;
 }
 .background {
     position: absolute;
-    inset: 10% 0% 20% 1%;
-    width: min(95%, 400px);
-    height: min(95%, 360px);
+    inset: 10% -20% 20% 50%;
+    width: min(95%, 600px);
+    height: min(95%, 390px);
     object-fit: cover;
     border-radius: 25px;
     transform: translateZ(0px);
@@ -226,13 +226,14 @@ margin-top: 10px;
 .my-photo {
     position: absolute;
     inset: -10% -10% 10% 10%;
-    width: min(95%, 340px);
-    height: min(95%, 450px);
+    width: min(95%, 600px);
+    height: min(95%, 700px);
     object-fit: contain;
     object-position: center bottom;
     transform: translateZ(55px);
     filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5));
     z-index: 1;
+    opacity: 1;
 }
 @media (max-width: 768px) {
     .hero {
@@ -247,7 +248,7 @@ margin-top: 10px;
         width: 400px;
     }
 }
-@media (max-width: 390px) {
+@media (max-width: 450px) {
     .daniel1 {
         font-size: 3.4em;
     }
