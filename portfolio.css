@@ -3,6 +3,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--font-name);
+}
+body {
+    background: linear-gradient(
+        120deg,
+        #101e32 0%,
+        #050505 50%,
+        #585673 75%,
+        #101e32 100%      
+    );
 }
 :root {
     --main-color: #101e32;
@@ -10,7 +20,6 @@
     --font-name: "Google Sans", sans-serif;
     --border-color: #1c56d4;
 }
-
 .header {
     display: grid;
     justify-content: center;
@@ -19,13 +28,7 @@
     height: 55px;
     width: 100%;
     max-width: 100%;
-    background: linear-gradient(
-        120deg,
-        #101e32 0%,
-        #050505 50%,
-        #585673 75%,
-        #101e32 100%      
-    );
+    background: transparent;
    color: aliceblue;
 
 }
@@ -49,6 +52,7 @@
 }
 .button {
     background: none;
+    background-color: none;
     color: aliceblue;
     border: none;
     cursor: pointer;
@@ -80,4 +84,166 @@
     justify-self: end;
     margin-right: 30px;
 }
- 
+.main {
+    min-height: calc(100vh - 55px);
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        #050505 250px  
+    );
+}
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: clamp(20px, 4vw, 70px);
+}
+.hello {
+    margin-left: 20px;
+    margin-top: 50px;
+    color: grey;
+    font-size: 0.8em;
+}
+.daniel1 {
+    margin-left: 20px;
+    color: var(--text-color);
+    font-size: 4.2em;
+}
+.bernovskyi {
+    margin-left: 20px;
+    color: var(--border-color);
+    font-size: 4.2em;
+    margin-top: -23px;
+}
+.webDeveloper {
+    margin-left: 20px;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+.description {
+margin-left: 20px;
+color: grey;
+opacity: 0.5;
+max-width: 500px;
+width: calc(100% - 20px);
+margin-top: 10px;
+}
+.viewMyProjects {
+    margin-left: 20px;
+    margin-top: 20px;
+    width: clamp(140px, 14vw, 190px);
+    height: 40px;
+    border-radius: 20px;
+    color: var(--text-color);
+    background-color: var(--border-color);
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    font-size: 0.9em;
+}
+.contactMe {
+    margin-left: 10px;
+    width: clamp(100px, 14vw, 130px);
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    color: var(--text-color);
+    background-color: var(--main-color);
+    opacity: 0.8;
+    cursor: pointer;
+}
+.skills {
+    margin-left: 20px;
+    margin-top: 20px;
+    color: var(--text-color);
+    display: flex;
+    gap: clamp(15px, 3vw, 45px);
+    flex-wrap: wrap;
+}
+.skills > span {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.skills strong {
+    font-size: clamp(15px, 1.5vw, 22px);
+    white-space: nowrap;
+}
+
+.skills small {
+    font-size: clamp(11px, 1vw, 14px);
+    color: gray;
+    opacity: 0.5;
+}
+.my-photo3d {
+    position: relative;
+    width: min(100%, 400px);
+    aspect-ratio: 4 / 5;
+    justify-self: end;
+    perspective: 1000px;
+    margin-right: 20px;
+    margin-top: 50px;
+}
+.photo-layers {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+.frame {
+    position: absolute;
+    border: 1px solid rgba(0, 130, 255, 0.5);
+    border-radius: 25px;
+    background: rgba(0, 80, 180, 0.1);
+    margin-right: 40px;
+}
+.frame-one {
+    inset: 5% 13% 18% -8%;
+    transform: translate3d(-18px, -20px, -70px);
+    z-index: 3;
+}
+.frame-two {
+    inset: 2% -1% 27% 1%;
+    transform: skewY(-20deg);
+    z-index: 4;
+    margin-right: 200px;
+    width: min(70%, 290px);
+    opacity: 0.5;
+}
+.background {
+    position: absolute;
+    inset: 10% 0% 20% 1%;
+    width: min(95%, 400px);
+    height: min(95%, 360px);
+    object-fit: cover;
+    border-radius: 25px;
+    transform: translateZ(0px);
+    justify-self: end;
+    z-index: 2;
+    opacity: 0.5;
+}
+.my-photo {
+    position: absolute;
+    inset: -10% -10% 10% 10%;
+    width: min(95%, 340px);
+    height: min(95%, 450px);
+    object-fit: contain;
+    object-position: center bottom;
+    transform: translateZ(55px);
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5));
+    z-index: 1;
+}
+@media (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+    .my-photo3d {
+         width: min(80%, 340px);
+        justify-self: center;
+    }
+    .background {
+        height: 325px;
+        width: 400px;
+    }
+}
