@@ -38,7 +38,6 @@ body {
    justify-self: start;
    font-family: var(--font-name);
    max-width: 100%;
-   transition: 1s;
    font-size: clamp(16px, 4vw, 24px);
 }
 .header1 {
@@ -58,7 +57,6 @@ body {
     cursor: pointer;
     font-size: clamp(15px, 2vw, 20px);
     font-family: var(--font-name);
-    transition: 1s;
     
 }
 .button:hover {
@@ -100,6 +98,7 @@ body {
 }
 .hello {
     margin-left: 20px;
+    margin-top: 50px;
     color: grey;
     font-size: 0.8em;
 }
@@ -180,7 +179,7 @@ margin-top: 10px;
     aspect-ratio: 4 / 5;
     justify-self: end;
     perspective: 1000px;
-    margin-right: 300px;
+    margin-right: 100px;
     margin-top: 50px;
 }
 .photo-layers {
@@ -235,24 +234,49 @@ margin-top: 10px;
     z-index: 1;
     opacity: 1;
 }
-@media (max-width: 768px) {
+@media (max-width: 870px) {
     .hero {
         grid-template-columns: 1fr;
     }
     .my-photo3d {
          width: min(80%, 340px);
         justify-self: center;
+        margin-left: 90px;
     }
     .background {
         height: 325px;
         width: 400px;
     }
+    .frame-two {
+        width: min(90%, 260px);
+    }
 }
-@media (max-width: 450px) {
+@media (max-width: 500px) {
     .daniel1 {
         font-size: 3.4em;
     }
     .bernovskyi {
         font-size: 3.4em;
+    }
+    .frame-one {
+        width: 440px;
+        inset: 1% 0% 9% -25%;
+    }
+    .frame-two {
+        width: min(90%, 263px);
+    }
+    .my-photo3d {
+        margin-left: 90px;
+        justify-self: center;
+    }
+    .header1 {
+        display: none;
+    }
+    .daniel {
+        display: flex;
+        justify-self: center;
+        margin-left: 200px;
+        margin-right: 170px;
+        font-size: 2em;
     }
 }
