@@ -326,13 +326,62 @@ margin-top: 10px;
 } 
 .project-1, .project-2, .project-3 {
     border: 1px solid white;
-    height: 220px;
+    height: 290px;
     margin-top: 30px;
     margin-left: 20px;
     width: 92%;
+    margin-bottom: 20px;
+    mask-image: radial-gradient(
+        ellipse at center,
+        black 60%,
+        transparent 100%
+    );
+    filter:brightness(0.5)
+}
+
+.project-1 {
+    background-image: url(azure-hero.png);
+    background-size: 100% auto;
+    background-position: top center left right;
+    background-repeat: no-repeat;
+    
+}
+.project-2 {
+    background-image: url(aurora-hero.png);
+    background-size: 100% auto;
+    background-position: top center left right;
+    background-repeat: no-repeat;
+}
+.project-3 {
+    background-image: url(veloura-hero.png);
+    background-size: 100% auto;
+    background-position: top center left right;
+    background-repeat: no-repeat;
 }
 @media (max-width: 870px) {
     .projects {
         display: block;
     }
+    .project-1 {
+    background-image: url(azure-hero.png);
+    background-size: 100% auto;
+    background-position: top center ;
+    background-repeat: no-repeat;
+    height: 350px;
+    
 }
+.project-2 {
+    background-image: url(aurora-hero.png);
+    background-size: 100% auto;
+    background-position: top center left right;
+    background-repeat: no-repeat;
+    height: 350px;
+}
+.project-3 {
+    background-image: url(veloura-hero.png);
+    background-size: 100% auto;
+    background-position: top center left right;
+    background-repeat: no-repeat;
+    height: 350px;
+}
+    }
