@@ -201,6 +201,11 @@ margin-top: 10px;
     transform: translate3d(-18px, -20px, -70px);
     z-index: 3;
     border-right: none;
+    mask-image: radial-gradient(
+        ellipse at center,
+        black 40%,
+        transparent 99%
+    );
 }
 .frame-two {
     inset: 2% -20% 27% 1%;
@@ -208,13 +213,20 @@ margin-top: 10px;
     z-index: 4;
     margin-right: 200px;
     width: min(90%, 310px);
-    opacity: 0.5;
+    border-right: none;
+    mask-image: radial-gradient(
+        ellipse at center,
+        black 60%,
+        transparent 100%
+    );
+    filter: brightness(0.8);
+    opacity: 1;
 }
 .background {
     position: absolute;
-    inset: 10% -10% 20% 50%;
-    width: min(95%, 600px);
-    height: min(95%, 390px);
+    inset: 10% -8% 30% -50%;
+    width:  500px;
+    height: min(95%, 365px);
     object-fit: cover;
     border-radius: 25px;
     transform: translateZ(0px);
@@ -233,6 +245,7 @@ margin-top: 10px;
     filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5));
     z-index: 1;
     opacity: 1;
+    filter: brightness(0.6);
 }
 @media (max-width: 870px) {
     .hero {
