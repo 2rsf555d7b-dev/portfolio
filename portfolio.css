@@ -251,7 +251,7 @@ margin-top: 10px;
         width: min(90%, 260px);
     }
 }
-@media (max-width: 500px) {
+@media (max-width: 420px) {
     .daniel1 {
         font-size: 3.4em;
     }
@@ -276,7 +276,12 @@ margin-top: 10px;
         display: flex;
         justify-self: center;
         margin-left: 200px;
-        margin-right: 170px;
+        margin-right: 95px;
         font-size: 2em;
     }
+    .background {
+        width: 400px;
+        inset: 5% -10% 0% -10%;
+    }
+    
 }
