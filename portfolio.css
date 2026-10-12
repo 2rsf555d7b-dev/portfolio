@@ -275,9 +275,12 @@ margin-top: 10px;
     .daniel {
         display: flex;
         justify-self: center;
-        margin-left: 200px;
-        margin-right: 95px;
+        margin-left: 170px;
+        margin-right: 130px;
         font-size: 2em;
+    }
+    .fa-moon {
+        margin-right: 30px;
     }
     .background {
         width: 400px;
