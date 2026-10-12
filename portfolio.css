@@ -242,6 +242,7 @@ margin-top: 10px;
          width: min(80%, 340px);
         justify-self: center;
         margin-left: 90px;
+
     }
     .background {
         height: 325px;
@@ -287,4 +288,35 @@ margin-top: 10px;
         inset: 5% -10% 0% -10%;
     }
     
+}
+.featured-projects {
+    color: grey;
+    opacity: 0.8;
+    margin-left: 20px;
+    font-size: 0.8em;
+    margin-top: -20px;
+}
+.some {
+    color: var(--text-color);
+    margin-left: 20px;
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+.some span {
+    color: var(--border-color);
+}
+ .projects {
+   display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+} 
+.project-1, .project-2, .project-3 {
+    border: 1px solid white;
+    height: 220px;
+    margin-top: 30px;
+}
+@media (max-width: 870px) {
+    .projects {
+        display: block;
+    }
 }
