@@ -266,6 +266,9 @@ margin-top: 10px;
         width: min(90%, 260px);
         inset: 0% 0% 0% 0%;
     }
+    .my-photo {
+        filter: brightness(0.9);
+    }
 }
 @media (max-width: 420px) {
     .daniel1 {
@@ -338,7 +341,7 @@ margin-top: 10px;
         black 60%,
         transparent 100%
     );
-    filter:brightness(0.5)
+    filter:brightness(0.5);
 }
 
 .project-1 {
