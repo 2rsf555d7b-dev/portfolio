@@ -258,11 +258,13 @@ margin-top: 10px;
 
     }
     .background {
-        height: 325px;
-        width: 400px;
+        height: 340px;
+        width: min(100%, 700px);
+        inset: 0% -30% 0% 0%;
     }
     .frame-two {
         width: min(90%, 260px);
+        inset: 0% 0% 0% 0%;
     }
 }
 @media (max-width: 420px) {
