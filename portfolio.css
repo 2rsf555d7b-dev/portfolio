@@ -558,4 +558,12 @@ font-family: var(--font-name);
 }
     
 } 
+@media (max-width: 420px) {
+    .project-4 > p {
+        font-size: 0.85em;
+    }
+    .project-5 > p {
+        font-size: 0.85em;
+    }
+}
 
