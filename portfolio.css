@@ -269,6 +269,9 @@ margin-top: 10px;
     .my-photo {
         filter: brightness(0.9);
     }
+    .skills {
+        display: inline-flex;
+    }
 }
 @media (max-width: 420px) {
     .daniel1 {
@@ -327,15 +330,14 @@ margin-top: 10px;
  .projects {
    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    column-gap: 20px;
+    row-gap: 0;
 } 
-.project-1, .project-2, .project-3 {
+.project-1, .project-2, .project-3, .project-4, .project-5, .project-6{
     border: 1px solid white;
-    height: 290px;
-    margin-top: 30px;
+    height: 140px;
     margin-left: 20px;
     width: 92%;
-    margin-bottom: 20px;
     mask-image: radial-gradient(
         ellipse at center,
         black 60%,
@@ -344,49 +346,57 @@ margin-top: 10px;
     filter:brightness(0.5);
 }
 
-.project-1 {
+ .project-1 {
     background-image: url(azure-hero.png);
-    background-size: 100% auto;
-    background-position: top center left right;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    border-bottom: none;
     
 }
 .project-2 {
     background-image: url(aurora-hero.png);
-    background-size: 100% auto;
-    background-position: top center left right;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    border-bottom: none;
+    
 }
 .project-3 {
     background-image: url(veloura-hero.png);
-    background-size: 100% auto;
-    background-position: top center left right;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-}
+    border-bottom: none;
+    }
+
 @media (max-width: 870px) {
     .projects {
         display: block;
+        width: 80%;
     }
-    .project-1 {
-    background-image: url(azure-hero.png);
-    background-size: 100% auto;
-    background-position: top center ;
-    background-repeat: no-repeat;
-    height: 350px;
-    
-}
-.project-2 {
-    background-image: url(aurora-hero.png);
-    background-size: 100% auto;
-    background-position: top center left right;
-    background-repeat: no-repeat;
-    height: 350px;
-}
-.project-3 {
-    background-image: url(veloura-hero.png);
-    background-size: 100% auto;
-    background-position: top center left right;
-    background-repeat: no-repeat;
-    height: 350px;
-}
+    .project-3 {
+        background-position: center 10%;
     }
+    .project-2 {
+        background-position: center 70%;
+    }
+    .projects > :nth-child(1) {
+        order: 1;
+    }
+    .projects > :nth-child(4) {
+        order: 2;
+    }
+    .projects > :nth-child(2) {
+        order: 3;
+    }
+    .projects > :nth-child(5) {
+        order: 4;
+    }
+    .projects > :nth-child(3) {
+        order: 5;
+    }
+    .projects > :nth-child(6) {
+        order: 6;
+    }
+} 
