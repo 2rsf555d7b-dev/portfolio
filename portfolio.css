@@ -101,22 +101,26 @@ body {
     margin-top: 50px;
     color: grey;
     font-size: 0.8em;
+    font-family: var(--font-name);
 }
 .daniel1 {
     margin-left: 20px;
     color: var(--text-color);
     font-size: 4.2em;
+    font-family: var(--font-name);
 }
 .bernovskyi {
     margin-left: 20px;
     color: var(--border-color);
     font-size: 4.2em;
     margin-top: -23px;
+    font-family: var(--font-name);
 }
 .webDeveloper {
     margin-left: 20px;
     color: var(--text-color);
     opacity: 0.7;
+    font-family: var(--font-name);
 }
 .description {
 margin-left: 20px;
@@ -125,6 +129,7 @@ opacity: 0.5;
 max-width: 500px;
 width: calc(100% - 20px);
 margin-top: 10px;
+font-family: var(--font-name);
 }
 .viewMyProjects {
     margin-left: 20px;
@@ -138,6 +143,7 @@ margin-top: 10px;
     cursor: pointer;
     opacity: 0.8;
     font-size: 0.9em;
+    font-family: var(--font-name);
 }
 .contactMe {
     margin-left: 10px;
@@ -150,6 +156,7 @@ margin-top: 10px;
     background-color: var(--main-color);
     opacity: 0.8;
     cursor: pointer;
+    font-family: var(--font-name);
 }
 .skills {
     margin-left: 20px;
@@ -163,16 +170,19 @@ margin-top: 10px;
     display: flex;
     flex-direction: column;
     gap: 5px;
+    font-family: var(--font-name);
 }
 .skills strong {
     font-size: clamp(15px, 1.5vw, 22px);
     white-space: nowrap;
+    font-family: var(--font-name);
 }
 
 .skills small {
     font-size: clamp(11px, 1vw, 14px);
     color: gray;
     opacity: 0.5;
+    font-family: var(--font-name);
 }
 .my-photo3d {
     position: relative;
@@ -318,12 +328,14 @@ margin-top: 10px;
     margin-left: 20px;
     font-size: 0.8em;
     margin-top: -20px;
+    font-family: var(--font-name);
 }
 .some {
     color: var(--text-color);
     margin-left: 20px;
     margin-top: 5px;
     letter-spacing: 1px;
+    font-family: var(--font-name);
 }
 .some span {
     color: var(--border-color);
@@ -382,6 +394,7 @@ margin-top: 10px;
     border-color: gray;
     border-radius: 0 0 10px 10px;
     filter:brightness(0.8);
+    font-family: var(--font-name);
 }
 .project-5 {
     border-top: none;
@@ -389,48 +402,56 @@ margin-top: 10px;
     border-color: gray;
     border-radius: 0 0 10px 10px;
     filter:brightness(0.8);
+    font-family: var(--font-name);
 }
 .project-6 {
     border-top: none;
     border-color: gray;
     border-radius: 0 0 10px 10px;
     filter:brightness(0.8);
+    font-family: var(--font-name);
 }
 .project-4 > h3 {
     color: var(--text-color);
     display: flex;
     margin-left: 10px;
     padding-top: 10px;
+    font-family: var(--font-name);
 }
 .project-4 > p {
     color: var(--text-color);
     font-size: 0.7em;
     padding-top: 10px;
     padding-left: 10px;
+    font-family: var(--font-name);
 }
 .project-5 > h3 {
     color: var(--text-color);
     display: flex;
     margin-left: 10px;
     padding-top: 10px;
+    font-family: var(--font-name);
 }
 .project-5 > p {
     color: var(--text-color);
     font-size: 0.75em;
     padding-top: 10px;
     padding-left: 10px;
+    font-family: var(--font-name);
 }
 .project-6 > h3 {
     color: var(--text-color);
     display: flex;
     margin-left: 10px;
     padding-top: 10px;
+    font-family: var(--font-name);
 }
 .project-6 > p {
     color: var(--text-color);
     font-size: 0.7em;
     padding-top: 10px;
     padding-left: 10px;
+    font-family: var(--font-name);
 }
 .buttons {
     display: flex;
@@ -446,6 +467,7 @@ margin-top: 10px;
     border-radius: 20px;
     height: 25px;
     cursor: pointer;
+    font-family: var(--font-name);
 }
 .css {
     color: white;
@@ -454,6 +476,7 @@ margin-top: 10px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
+    font-family: var(--font-name);
 }
 .js {
     color: white;
@@ -462,6 +485,7 @@ margin-top: 10px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
+    font-family: "Google Sans", sans-serif;
 }
 .html:hover, .css:hover, .js:hover, .viewMyProjects:hover, .contactMe:hover {
     filter: brightness(0.8);
