@@ -141,6 +141,7 @@ margin-top: 10px;
 }
 .contactMe {
     margin-left: 10px;
+    margin-top: 20px;
     width: clamp(100px, 14vw, 130px);
     height: 40px;
     border: none;
@@ -340,10 +341,9 @@ margin-top: 10px;
     width: 92%;
     mask-image: radial-gradient(
         ellipse at center,
-        black 60%,
+        black 80%,
         transparent 100%
     );
-    filter:brightness(0.5);
 }
 
  .project-1 {
@@ -352,7 +352,9 @@ margin-top: 10px;
     background-position: center;
     background-repeat: no-repeat;
     border-bottom: none;
-    
+    border-radius: 10px 10px 0 0;
+    border-color: gray;
+    filter:brightness(0.5);
 }
 .project-2 {
     background-image: url(aurora-hero.png);
@@ -360,7 +362,9 @@ margin-top: 10px;
     background-position: center;
     background-repeat: no-repeat;
     border-bottom: none;
-    
+     border-radius: 10px 10px 0 0;
+    border-color: gray;
+    filter:brightness(0.5);
 }
 .project-3 {
     background-image: url(particle-world-background.png);
@@ -368,17 +372,29 @@ margin-top: 10px;
     background-position: center;
     background-repeat: no-repeat;
     border-bottom: none;
+     border-radius: 10px 10px 0 0;
+     border-color: gray;
+     filter:brightness(0.5);
 }
 .project-4 {
     border-top: none;
     margin-bottom: 30px;
+    border-color: gray;
+    border-radius: 0 0 10px 10px;
+    filter:brightness(0.8);
 }
 .project-5 {
     border-top: none;
     margin-bottom: 30px;
+    border-color: gray;
+    border-radius: 0 0 10px 10px;
+    filter:brightness(0.8);
 }
 .project-6 {
     border-top: none;
+    border-color: gray;
+    border-radius: 0 0 10px 10px;
+    filter:brightness(0.8);
 }
 .project-4 > h3 {
     color: var(--text-color);
@@ -415,6 +431,40 @@ margin-top: 10px;
     font-size: 0.7em;
     padding-top: 10px;
     padding-left: 10px;
+}
+.buttons {
+    display: flex;
+    margin-top: 15px;
+    padding-left: 10px;
+    gap: 10px;
+}
+.html {
+    color: white;
+    width: 70px;
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 20px;
+    height: 25px;
+    cursor: pointer;
+}
+.css {
+    color: white;
+    width: 50px;
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.js {
+    color: white;
+    width: 100px;
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.html:hover, .css:hover, .js:hover, .viewMyProjects:hover, .contactMe:hover {
+    filter: brightness(0.8);
 }
 @media (max-width: 870px) {
     .projects { 
