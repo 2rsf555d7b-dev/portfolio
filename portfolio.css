@@ -363,20 +363,67 @@ margin-top: 10px;
     
 }
 .project-3 {
-    background-image: url(veloura-hero.png);
+    background-image: url(particle-world-background.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-bottom: none;
-    }
-
+}
+.project-4 {
+    border-top: none;
+    margin-bottom: 30px;
+}
+.project-5 {
+    border-top: none;
+    margin-bottom: 30px;
+}
+.project-6 {
+    border-top: none;
+}
+.project-4 > h3 {
+    color: var(--text-color);
+    display: flex;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+.project-4 > p {
+    color: var(--text-color);
+    font-size: 0.7em;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.project-5 > h3 {
+    color: var(--text-color);
+    display: flex;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+.project-5 > p {
+    color: var(--text-color);
+    font-size: 0.75em;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.project-6 > h3 {
+    color: var(--text-color);
+    display: flex;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+.project-6 > p {
+    color: var(--text-color);
+    font-size: 0.7em;
+    padding-top: 10px;
+    padding-left: 10px;
+}
 @media (max-width: 870px) {
-    .projects {
-        display: block;
-        width: 80%;
+    .projects { 
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        width: 100%;
     }
     .project-3 {
-        background-position: center 10%;
+        background-position: center 35%;
     }
     .project-2 {
         background-position: center 70%;
@@ -399,4 +446,42 @@ margin-top: 10px;
     .projects > :nth-child(6) {
         order: 6;
     }
+    .project-4 > h3 {
+    color: var(--text-color);
+    display: flex;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+.project-4 > p {
+    color: var(--text-color);
+    font-size: 0.9em;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.project-5 > h3 {
+    color: var(--text-color);
+    display: flex;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+.project-5 > p {
+    color: var(--text-color);
+    font-size: 1em;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.project-6 > h3 {
+    color: var(--text-color);
+    display: flex;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+.project-6 > p {
+    color: var(--text-color);
+    font-size: 1em;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+    
 } 
+
