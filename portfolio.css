@@ -572,7 +572,7 @@ font-family: var(--font-name);
         font-size: 0.85em;
     }
 }
-.contact-section > div > h1, p, span {
+.contact-section > div > p, h1,a {
     color: var(--text-color);
     margin-left: 20px;
 }
@@ -580,4 +580,35 @@ font-family: var(--font-name);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
+.icons {
+    display: block;
+    margin-right: 100px;
+    margin-top: 20px;
+    justify-self: end;
+}
+.icons > a {
+    text-decoration: none;
+}
+.fa-envelope, .fa-github, .fa-telegram {
+    color: var(--text-color);
+}
+.contact-section > div > p {
+    font-size: 0.9em;
+    opacity: 0.7;
+    margin-bottom: 10px;
+    max-width: 280px;
+    margin-top: 10px;
+}
+.lets-work > h1 > span {
+    color: var(--border-color);
+    margin-left: 9px;
+}
+.lets-work > h1 {
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+.fa-github, .fa-telegram {
+    margin-top: 30px;
+}
+
 
