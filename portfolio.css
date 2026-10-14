@@ -5,6 +5,9 @@
     box-sizing: border-box;
     font-family: var(--font-name);
 }
+html {
+    scroll-behavior: smooth;
+}
 body {
     background: linear-gradient(
         120deg,
@@ -57,6 +60,7 @@ body {
     cursor: pointer;
     font-size: clamp(15px, 2vw, 20px);
     font-family: var(--font-name);
+    text-decoration: none;
     
 }
 .button:hover {
@@ -258,6 +262,7 @@ font-family: var(--font-name);
     opacity: 1;
     filter: brightness(0.6);
 }
+   
 @media (max-width: 870px) {
     .hero {
         grid-template-columns: 1fr;
@@ -339,6 +344,7 @@ font-family: var(--font-name);
 }
 .some span {
     color: var(--border-color);
+    margin-left: 12px;
 }
  .projects {
    display: grid;
@@ -565,5 +571,13 @@ font-family: var(--font-name);
     .project-5 > p {
         font-size: 0.85em;
     }
+}
+.contact-section > div > h1, p, span {
+    color: var(--text-color);
+    margin-left: 20px;
+}
+.contact-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
