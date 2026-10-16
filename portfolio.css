@@ -42,6 +42,7 @@ body {
    font-family: var(--font-name);
    max-width: 100%;
    font-size: clamp(16px, 4vw, 24px);
+   justify-self: start;
 }
 .header1 {
    display: flex;
@@ -289,6 +290,9 @@ font-family: var(--font-name);
     .skills {
         display: inline-flex;
     }
+    .daniel {
+        justify-self: start;
+    }
 }
 @media (max-width: 420px) {
     .daniel1 {
@@ -315,12 +319,9 @@ font-family: var(--font-name);
     .daniel {
         display: flex;
         justify-self: start;
-        margin-left:px;
-        margin-right: 230px;
+        margin-left: 20px;
+        margin-right: 180px;
         font-size: 2em;;
-    }
-    .fa-moon {
-       
     }
     .background {
         width: 300px;
@@ -657,4 +658,48 @@ font-family: var(--font-name);
         padding-top: 30px;
     }
 }
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.header {
+    position: relative;
+}
+.menu-button {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+}
+.menu-button span {
+    width: 25px;
+    height: 2px;
+    background: white;
+    border-radius: 5px;
+}
+@media (max-width: 420px) {
+    .menu-button {
+        display: flex;
+    }
+    .header1.open {
+        display: flex;
+    }
+    .header1 {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
 
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+
+        background: #0e192b;
+        z-index: 100;
+    }
+}
