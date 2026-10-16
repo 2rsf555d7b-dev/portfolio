@@ -314,13 +314,13 @@ font-family: var(--font-name);
     }
     .daniel {
         display: flex;
-        justify-self: center;
-        margin-left: 110px;
-        margin-right: 130px;
+        justify-self: start;
+        margin-left:px;
+        margin-right: 230px;
         font-size: 2em;;
     }
     .fa-moon {
-        margin-left: 20px;
+       
     }
     .background {
         width: 300px;
@@ -643,11 +643,18 @@ font-family: var(--font-name);
     padding-top: 40px;
     font-size: 0.9em;
     filter: brightness(0.7);
+    padding-left: 10px;
 }
 .fa-github {
     margin-top: 10px;
 }
 @media (max-width: 870px) {
-    
+    .icons {
+        margin-top: 50px;
+        margin-right: 20px;
+    }
+    .contactFooter {
+        padding-top: 30px;
+    }
 }
 
