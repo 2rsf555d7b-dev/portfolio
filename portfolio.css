@@ -5,6 +5,10 @@
     box-sizing: border-box;
     font-family: var(--font-name);
 }
+body.white, body.white main {
+    background: aliceblue;
+    color: black;
+}
 html {
     scroll-behavior: smooth;
 }
@@ -56,10 +60,10 @@ body {
 .button {
     background: none;
     background-color: none;
-    color: aliceblue;
+    color: var(--text-color);
     border: none;
     cursor: pointer;
-    font-size: clamp(15px, 2vw, 20px);
+    font-size: clamp(12px, 2vw, 20px);
     font-family: var(--font-name);
     text-decoration: none;
     
@@ -71,17 +75,21 @@ body {
    display: flex;
    justify-content: center;
    text-align: center;
-   padding-top: 12px;
+   padding-top: 10px;
    background-color:#050505; 
    color:aliceblue;
-   width: 40px;
+   width: 120px;
    height: 40px;
+   gap: 10px;
    border-radius: 15px;   
    margin-right: 0;
    margin-left: 0;
    justify-self: end;
    cursor: pointer;
-   
+   text-decoration: none ;   
+}
+.fa-phone {
+    display: none;
 }
 .header > span {
     justify-self: end;
@@ -293,6 +301,12 @@ font-family: var(--font-name);
     .daniel {
         justify-self: start;
     }
+    .fa-moon {
+        display: none;
+    }
+    .fa-phone {
+        display: block;
+    }
 }
 @media (max-width: 420px) {
     .daniel1 {
@@ -477,6 +491,7 @@ font-family: var(--font-name);
     height: 25px;
     cursor: pointer;
     font-family: var(--font-name);
+     color: var(--text-color);
 }
 .css {
     color: white;
@@ -486,6 +501,7 @@ font-family: var(--font-name);
     border-radius: 20px;
     cursor: pointer;
     font-family: var(--font-name);
+    color: var(--text-color);
 }
 .js {
     color: white;
@@ -495,6 +511,7 @@ font-family: var(--font-name);
     border-radius: 20px;
     cursor: pointer;
     font-family: "Google Sans", sans-serif;
+     color: var(--text-color);
 }
 .html:hover, .css:hover, .js:hover, .viewMyProjects:hover, .contactMe:hover {
     filter: brightness(0.8);

@@ -8,7 +8,7 @@ menuButton.addEventListener ('click', function() {
     menuButton.setAttribute("aria-expanded", String(isOpen));
 })
 
-const links = document.querySelector('.header1 a')
+const links = document.querySelectorAll('.header1 a')
 
 links.forEach((link) => {
     link.addEventListener("click", () => {
@@ -16,3 +16,4 @@ links.forEach((link) => {
         menuButton.setAttribute("aria-expanded", "false");
     });
 })
+
