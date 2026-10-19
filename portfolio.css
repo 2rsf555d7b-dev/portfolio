@@ -108,6 +108,7 @@ body {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: clamp(20px, 4vw, 70px);
+    position: relative;
 }
 .hello {
     margin-left: 20px;
@@ -148,6 +149,7 @@ font-family: var(--font-name);
     margin-left: 20px;
     margin-top: 20px;
     width: clamp(140px, 14vw, 190px);
+    gap: 10px;
     height: 40px;
     border-radius: 20px;
     color: var(--text-color);
@@ -205,6 +207,19 @@ font-family: var(--font-name);
     color: gray;
     opacity: 0.5;
     font-family: var(--font-name);
+}
+.hero-particles {
+    position: absolute;
+    left: 37%;
+    top: 20%;
+    width: 25%;
+    height: 60%;
+    z-index: 1;
+}
+@media (max-width: 1300px) {
+    canvas {
+        display: none;
+    }
 }
 .my-photo3d {
     position: relative;
