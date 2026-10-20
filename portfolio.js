@@ -38,7 +38,7 @@ canvas.height = canvas.clientHeight;
 
 const particles = [];
 
-for (let i = 0; i < 60; i++) {
+for (let i = 0; i < 150; i++) {
     particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -63,18 +63,27 @@ function animate() {
             const radius = 100;
 
             if (distance > 0 && distance < radius) {
-                const force = 0.8 - distance / radius;
+                const force = 1 - distance / radius;
 
                 particle.x += (differenceX / distance) * force * 2;
                 particle.y += (differenceY / distance) * force * 2;
             }
         }
-
-        if (particle.x < 0 || particle.x > canvas.width) {
-            particle.dx *= -1;
+        if (particle.x <= particle.size) {
+            particle.x = particle.size;
+            particle.dx = Math.abs(particle.dx);
         }
-        if (particle.y < 0 || particle.y > canvas.height) {
-            particle.dy *= -1;
+        if (particle.x >= canvas.width - particle.size) {
+            particle.x = canvas.width - particle.size;
+            particle.dx = -Math.abs(particle.dx);
+        }
+        if (particle.y <= particle.size) {
+            particle.y = particle.size;
+            particle.dy = Math.abs(particle.dy);
+        }
+        if (particle.y >= canvas.height - particle.size) {
+            particle.y = canvas.height - particle.size;
+            particle.dy = -Math.abs(particle.dy)
         }
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
