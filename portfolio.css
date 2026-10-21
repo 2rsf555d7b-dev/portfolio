@@ -69,7 +69,12 @@ body {
     
 }
 .button:hover {
-    border-bottom: 2px solid var(--border-color);
+    opacity: 0.8;
+}
+.home {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2px;
+    color: var(--border-color);
 }
 .fa-moon {
    display: flex;
