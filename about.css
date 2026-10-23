@@ -13,6 +13,24 @@
 .about-bernovskyi {
     font-size: 3em;
 }
-.about-my-photo {
-    margin-top: -30px;
+.my-photo3d {
+    position: relative;
+    overflow: hidden;
 }
+.about-my-photo {
+    margin-top: -50px;
+    overflow: hidden;
+    filter: brightness(1);
+    mask-image: linear-gradient(
+        to right,
+        #585673 55%,
+        transparent 100%
+    );
+
+    -webkit-mask-image: linear-gradient(
+        to right,
+        #585673 55%,
+        transparent 100%
+    );
+}
+
