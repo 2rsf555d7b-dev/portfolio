@@ -7,22 +7,29 @@
     margin-top: 40px;
 }
 .about-daniel1 {
-    font-size: 3em;
+    font-size: clamp(5px, 14vw, 55px);
     margin-bottom: 20px;
 }
 .about-bernovskyi {
-    font-size: 3em;
+    font-size: clamp(20px, 14vw, 48px);
+}
+.viewMyProjects {
+    margin-bottom: 350px;
 }
 .my-photo3d {
-    position: relative;
-    overflow: hidden;
+   position: relative;
+    width: min(100%, 550px);
+    aspect-ratio: 4 / 5;
+    justify-self: end;
+    perspective: 1000px;
+    margin-right: min(70px, 16vw, 300px);
 }
 .about-my-photo {
-    margin-top: -50px;
+    margin-top: -200px;
     overflow: hidden;
-    filter: brightness(1);
+    filter: brightness(0.7);
     mask-image: linear-gradient(
-        to right,
+        to top right,
         #585673 55%,
         transparent 100%
     );
@@ -32,5 +39,13 @@
         #585673 55%,
         transparent 100%
     );
+}
+@media (max-width: 870px) {
+    .viewMyProjects {
+        margin-bottom: -350px;
+    }
+    .my-photo3d {
+        justify-self: center;
+    }
 }
 
