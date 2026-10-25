@@ -413,7 +413,7 @@ font-family: var(--font-name);
  .projects {
    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 20px;
+    column-gap: 10px;
     row-gap: 0;
 } 
 .project-1, .project-2, .project-3, .project-4, .project-5, .project-6{
