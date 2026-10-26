@@ -133,7 +133,60 @@
     .project-4, .project-5, .project-6 {
         width: 50%;
     }
+    .techStack-section > div > div > h1 {
+        font-size: 1.5em;
+    }
+    .description2 {
+       width: 300px;
+    }
+
 }
-.contact-section {
+.techStack-section > div > p, h1 {
+    color: var(--text-color);
+    margin-left: 20px;
+}
+.techStack-section > div > p {
+    font-size: 0.9em;
+    opacity: 0.7;
+    margin-bottom: 10px;
+    max-width: 280px;
+    margin-top: 10px;
+}
+.description2 {
+    color: var(--text-color);
+    justify-self: end;
+    max-width: 400px;
+    filter: brightness(0.8);
+    margin-bottom: none;
+}
+@media (max-width: 870px) {    
+}
+.technologies-i-work-with {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-top: 20px;
+    gap: 10px;
+}
+.technologies-i-work-with > div {
+    background-color: var(--main-color);
+    border-radius: 20px;
+    filter: brightness(0.8);
+}
+.technologies-i-work-with > div > strong > img  {
+    width: 37px;
+    height: 90px;
+    justify-self: center;
+    filter: brightness(1.2);
+}
+.technologies-i-work-with > div > strong {
     display: flex;
+    justify-content: center;
 }
+.technologies-i-work-with > div > small {
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    filter: brightness(0.8);
+} 
