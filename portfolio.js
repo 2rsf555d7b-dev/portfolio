@@ -38,7 +38,7 @@ canvas.height = canvas.clientHeight;
 
 const particles = [];
 
-for (let i = 0; i < 150; i++) {
+for (let i = 0; i < 100; i++) {
     particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -48,7 +48,42 @@ for (let i = 0; i < 150; i++) {
     });
 }
 
+//Этот код управляет размером и запуском canvas-анимации в .hero.
+let canvasVisible = false;
+
+function syncCanvasSize() {
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+
+    if (!width || !height) {
+        canvasVisible = false;
+        return;
+    }
+
+    canvas.width = width;
+    canvas.height = height;
+
+    particles.forEach((particle) => {
+        particle.x = Math.min(particle.x, width);
+        particle.y = Math.min(particle.y, height);
+    });
+
+    canvasVisible = true;
+}
+
+window.addEventListener('resize', () => {
+    const wasVisible = canvasVisible;
+
+    syncCanvasSize();
+
+    if (!wasVisible && canvasVisible) {
+        animate();
+    }
+});
 function animate() {
+    if (!canvasVisible) {
+    return;
+}
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     particles.forEach(function(particle) {
@@ -89,7 +124,7 @@ function animate() {
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fillStyle = "#4da6ff";
         ctx.shadowBlur = 15;
-        ctx,shadowColor = "#1c56d4"
+        ctx.shadowColor = "#1c56d4"
         ctx.fill();
         ctx.shadowBlur = 0;
     });
@@ -117,4 +152,8 @@ function animate() {
     }
     requestAnimationFrame(animate);
 }
-animate()
+syncCanvasSize();
+
+if (canvasVisible) {
+    animate();
+}
