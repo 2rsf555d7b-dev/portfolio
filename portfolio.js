@@ -18,9 +18,11 @@ links.forEach((link) => {
 })
 
 const canvas = document.querySelector('#particles');
-const ctx = canvas.getContext('2d');
-const mouse = {x: null, y: null};
 const hero = document.querySelector('.hero');
+
+if (canvas && hero) {
+    const ctx = canvas.getContext('2d');
+    const mouse = {x: null, y: null};  
 
 hero.addEventListener('pointermove', function(event) {
     const rect = canvas.getBoundingClientRect();
@@ -169,4 +171,5 @@ syncCanvasSize();
 
 if (canvasVisible) {
     animate();
+}
 }

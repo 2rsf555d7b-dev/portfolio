@@ -399,6 +399,19 @@ font-family: var(--font-name);
     }
     
 }
+@media (min-width: 421px) and (max-width: 500px) {
+    .header {
+        grid-template-columns: auto 1fr auto;
+    }
+
+    .header1 {
+        gap: 8px;
+    }
+
+    .header1 .button {
+        margin-left: 0;
+    }
+}
 .featured-projects {
     color: grey;
     opacity: 0.8;
