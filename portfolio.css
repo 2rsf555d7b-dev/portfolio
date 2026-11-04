@@ -445,7 +445,7 @@ font-family: var(--font-name);
 }
 
  .project-1 {
-    background-image: url(azure-hero.png);
+   background-image: image-set(url(azure-hero.webp) type("image/webp"), url(azure-hero.png) type("image/png"));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -455,7 +455,7 @@ font-family: var(--font-name);
     filter:brightness(0.5);
 }
 .project-2 {
-    background-image: url(aurora-hero.png);
+    background-image: image-set(url(aurora-hero.webp) type("image/webp"), url(aurora-hero.png) type("image/png"));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -465,7 +465,7 @@ font-family: var(--font-name);
     filter:brightness(0.5);
 }
 .project-3 {
-    background-image: url(particle-world-background.png);
+    background-image: image-set(url(particle-world-background.webp) type("image/webp"), url(particle-world-background.png) type("image/png"));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -496,6 +496,14 @@ font-family: var(--font-name);
     border-radius: 0 0 10px 10px;
     filter:brightness(0.8);
     font-family: var(--font-name);
+}
+.featured-work .project-4,
+.featured-work .project-5,
+.featured-work .project-6 {
+    height: auto;
+    min-height: 140px;
+    align-self: start;
+    padding-bottom: 10px;
 }
 .project-4 > h3 {
     color: var(--text-color);
@@ -649,6 +657,9 @@ font-family: var(--font-name);
     width: 130px;
     font-size: 0.7em;
   }  
+  .featured-work .AllProjects {
+    font-size: clamp(11px, 1.8vw, 12px);
+}
 } 
 @media (max-width: 420px) {
     .project-4 > p {
