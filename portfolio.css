@@ -352,10 +352,10 @@ font-family: var(--font-name);
 }
 @media (max-width: 420px) {
     .daniel1 {
-        font-size: 3.4em;
+        font-size: 3em;
     }
     .bernovskyi {
-        font-size: 3.4em;
+        font-size: 3em;
     }
     .frame-one {
         width: auto;
@@ -385,6 +385,17 @@ font-family: var(--font-name);
     .background {
         width: min(100%, 300px);
         inset: 5% -5% 0;
+    }
+    .header {
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .header .daniel {
+        margin-right: 0;
+    }
+
+    .header .header-controls {
+        margin-right: 20px;
     }
     
 }

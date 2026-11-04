@@ -50,13 +50,21 @@ for (let i = 0; i < 100; i++) {
 
 //Этот код управляет размером и запуском canvas-анимации в .hero.
 let canvasVisible = false;
+let animationFrameId = null;
 
 function syncCanvasSize() {
     const width = canvas.clientWidth;
     const height = canvas.clientHeight;
+    const wasVisible = canvasVisible;
 
     if (!width || !height) {
         canvasVisible = false;
+
+        if (animationFrameId !== null) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+        }
+
         return;
     }
 
@@ -64,8 +72,13 @@ function syncCanvasSize() {
     canvas.height = height;
 
     particles.forEach((particle) => {
-        particle.x = Math.min(particle.x, width);
-        particle.y = Math.min(particle.y, height);
+        if (!wasVisible) {
+            particle.x = Math.random() * width;
+            particle.y = Math.random() * height;
+        } else {
+            particle.x = Math.min(particle.x, width);
+            particle.y = Math.min(particle.y, height);
+        }
     });
 
     canvasVisible = true;
@@ -150,7 +163,7 @@ function animate() {
             }
         }
     }
-    requestAnimationFrame(animate);
+    animationFrameId = requestAnimationFrame(animate);
 }
 syncCanvasSize();
 
