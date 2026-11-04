@@ -409,7 +409,6 @@ font-family: var(--font-name);
 }
 .some span {
     color: var(--border-color);
-   margin-left: 10px;
 }
 .AllProjects {
     display: flex;
@@ -445,6 +444,7 @@ font-family: var(--font-name);
 }
 
  .project-1 {
+   background-image:url(azure-hero.png);
    background-image: image-set(url(azure-hero.webp) type("image/webp"), url(azure-hero.png) type("image/png"));
     background-size: cover;
     background-position: center;
@@ -455,6 +455,7 @@ font-family: var(--font-name);
     filter:brightness(0.5);
 }
 .project-2 {
+    background-image: url(aurora-hero.png);
     background-image: image-set(url(aurora-hero.webp) type("image/webp"), url(aurora-hero.png) type("image/png"));
     background-size: cover;
     background-position: center;
@@ -465,6 +466,7 @@ font-family: var(--font-name);
     filter:brightness(0.5);
 }
 .project-3 {
+    background-image: url(particle-world-background.png);
     background-image: image-set(url(particle-world-background.webp) type("image/webp"), url(particle-world-background.png) type("image/png"));
     background-size: cover;
     background-position: center;
@@ -698,8 +700,7 @@ font-family: var(--font-name);
     margin-top: 10px;
 }
 .lets-work > h1 > span {
-    color: var(--border-color);
-    margin-left: 9px;
+    color: var(--border-color);   
 }
 .lets-work > h1 {
     margin-bottom: 30px;
@@ -714,7 +715,9 @@ font-family: var(--font-name);
 }
 .line {
     border: 0.1px solid var(--text-color);
-    width: 190%;
+    grid-column: 1 / -1;
+    width: calc(100% - 40px);
+    margin-right: 20px;
     margin-top: 50px;
     margin-bottom: 60px;
     filter: brightness(0.5);
@@ -798,6 +801,21 @@ font-family: var(--font-name);
         z-index: 100;
     }
 }
+@media (max-width: 400px) {
+    .contact-section {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .contact-section .icons {
+        justify-self: start;
+        margin: 30px 20px 0;
+        max-width: calc(100% - 40px);
+    }
+
+    .contact-section .icons .email {
+        overflow-wrap: anywhere;
+    }
+}
 #contacts {
     position: relative;
 }
@@ -873,6 +891,11 @@ font-family: var(--font-name);
 @media (max-width: 700px) {
     .contact-orbit {
         display: none;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    #contacts .orbit-ring {
+        animation: none;
     }
 }
 
