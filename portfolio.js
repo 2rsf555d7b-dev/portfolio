@@ -173,3 +173,41 @@ if (canvasVisible) {
     animate();
 }
 }
+const techStack = document.querySelector('.techStack-section');
+const moreToolsButton = techStack?.querySelector('.more-tools');
+
+if (techStack && moreToolsButton) {
+    const desktopWidth = window.matchMedia('(min-width: 1024px)');
+    const moreToolsLabel = moreToolsButton.querySelector('.more-tools-label');
+
+    function updateMoreTools() {
+        if (desktopWidth.matches) {
+            techStack.classList.remove('is-expanded');
+        }
+
+        const isExpanded = techStack.classList.contains('is-expanded');
+
+        moreToolsButton.disabled = desktopWidth.matches;
+
+        if (desktopWidth.matches) {
+            moreToolsButton.removeAttribute('aria-expanded');
+        } else {
+            moreToolsButton.setAttribute('aria-expanded', String(isExpanded));
+        }
+
+        moreToolsLabel.textContent = isExpanded
+            ? 'Show Less'
+            : 'More Tools';
+    }
+
+    moreToolsButton.addEventListener('click', () => {
+        techStack.classList.toggle('is-expanded');
+        updateMoreTools();
+    });
+
+    desktopWidth.addEventListener('change', updateMoreTools);
+
+    updateMoreTools();
+    techStack.classList.add('is-ready');
+    moreToolsButton.hidden = false;
+}

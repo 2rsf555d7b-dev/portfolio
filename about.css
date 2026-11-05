@@ -195,14 +195,69 @@
     max-width: 280px;
     margin-top: 10px;
 }
+.techStack-section .technologies-i-work-with {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    padding: 0 20px;
+}
+
+.techStack-section .technologies-i-work-with > div {
+    min-width: 0;
+}
+
+.techStack-section .technologies-i-work-with > div > small {
+    display: block;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
 .description2 {
     color: var(--text-color);
     justify-self: end;
     max-width: 400px;
     filter: brightness(0.8);
-    margin-bottom: none;
 }
-@media (max-width: 870px) {    
+.techStack-section img[src*="/github/"] {
+    filter: brightness(0) invert(1);
+}
+.more-tools {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-width: 0;
+    min-height: 115px;
+    padding: 10px;
+
+    border: 1px solid rgba(28, 86, 212, 0.4);
+    border-radius: 20px;
+    background: #0d192a;
+    color: aliceblue;
+    font: inherit;
+    cursor: pointer;
+}
+
+.more-tools[hidden] {
+    display: none;
+}
+
+.more-tools:disabled {
+    cursor: default;
+}
+
+.more-tools:focus-visible {
+    outline: 2px solid #45a4ff;
+    outline-offset: 3px;
+}
+
+.more-tools-icon {
+    color: #45a4ff;
+    font-size: 36px;
+    line-height: 1;
+}
+
+.more-tools-label {
+    font-size: 0.8em;
 }
 .technologies-i-work-with {
     display: grid;
@@ -233,3 +288,63 @@
     margin-bottom: 20px;
     filter: brightness(0.8);
 } 
+@media (max-width: 699px) {
+    .techStack-section .some {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 0 20px;
+    }
+
+    .techStack-section .some h1 {
+        margin-left: 0;
+    }
+
+    .techStack-section .some > span {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .techStack-section .description2 {
+        width: auto;
+        max-width: 100%;
+    }
+}
+@media (max-width: 599px) {
+    .techStack-section .technologies-i-work-with {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .techStack-section.is-ready .more-tools {
+        order: 1;
+    }
+
+    .techStack-section.is-ready
+    .technologies-i-work-with > div:nth-of-type(n + 3) {
+        order: 2;
+    }
+
+    .techStack-section.is-ready:not(.is-expanded)
+    .technologies-i-work-with > div:nth-of-type(n + 3) {
+        display: none;
+    }
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+    .techStack-section .technologies-i-work-with {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .techStack-section.is-ready .more-tools {
+        order: 1;
+    }
+
+    .techStack-section.is-ready
+    .technologies-i-work-with > div:nth-of-type(n + 4) {
+        order: 2;
+    }
+
+    .techStack-section.is-ready:not(.is-expanded)
+    .technologies-i-work-with > div:nth-of-type(n + 4) {
+        display: none;
+    }
+}

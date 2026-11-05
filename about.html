@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="portfolio.css">
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
- <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+ 
           
 </head>
 <body>
@@ -60,13 +60,13 @@ I help businesses and individuals turn their ideas into clean, functional and vi
         <div class="projects">
         <div class="project-4"><i class="fa-solid fa-code"></i><h3>Web Development</h3><p>Modern, responsive and fast websites using HTML, CSS, Javascript.</p></div>
         <div class="project-5"><i class="fa-solid fa-gear"></i><h3>Automation</h3><p>Custom scripts and automation solutions to save your time and simplify your workflow.</p></div>
-        <div class="project-6"><i class="fa-solid fa-layer-group"></i><h3>Web Applications</h3><p>Interactive web apps with modern UI/UX and smooth perfomance.</p></div>
+        <div class="project-6"><i class="fa-solid fa-layer-group"></i><h3>Web Applications</h3><p>Interactive web apps with modern UI/UX and smooth performance.</p></div>
         </div>
     </section>
     <section  class="techStack-section">
         <div>
             <p class="techStack">TECH STACK</p>
-        <div class="some"><h1>Technologies<span>I Work With</span></h1><span><p class="description2">I use modern tools and technologies to built fast, scalable and maintainable projects.</p></span>
+        <div class="some"><h1>Technologies <span>I Work With</span></h1><span><p class="description2">I use modern tools and technologies to build fast, scalable and maintainable projects.</p></span>
         </div>
         </div>   
         <div class="technologies-i-work-with">
@@ -84,32 +84,40 @@ I help businesses and individuals turn their ideas into clean, functional and vi
           </strong>
           <small>CSS3</small>
              </div>
-              <div>
+              <div id="tool-javascript">
                 <strong>
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
           
           </strong>
           <small>JavaScript</small>
               </div>
-               <div>
+               <div id="tool-python">
                 <strong>
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
           </strong>
           <small>Python</small>
                </div>
-                <div>
+                <div id="tool-git">
                     <strong>
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
           </strong>
           <small>Git</small>
                 </div>
-                 <div>
+                 <div id="tool-github">
                     <strong>
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
           </strong>
           <small>GitHub</small>
                  </div>
-                  <div>More Tools</div>
+                  <button
+                     class="more-tools"
+                     type="button"
+                     aria-controls="tool-javascript tool-python tool-git tool-github"
+                     aria-expanded="false"
+                     hidden>
+                     <i class="fa-solid fa-ellipsis more-tools-icon" aria-hidden="true"></i>
+                     <span class="more-tools-label">More Tools</span>
+                 </button>
         </div>
     </section>
 </main>
