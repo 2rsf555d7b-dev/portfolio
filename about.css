@@ -30,12 +30,12 @@
     opacity: 0.8;
 }
 
-.about-her .viewMyProjects {
+.about-hero .viewMyProjects {
     margin-bottom: 0;
 }
 
 .about-hero .my-photo3d {
-    width: min(100%, 600px);
+    width: min(100%, 650px);
     aspect-ratio: 1448 / 1086;
     margin: 0;
     justify-self: center;
@@ -65,7 +65,7 @@
     );
 }
 
-@media (max-width: 870px) {
+@media (max-width: 869px) {
     .about-hero {
         grid-template-columns: minmax(0, 1fr);
         gap: 30px;
@@ -103,33 +103,34 @@
 .projects {
     margin-top: -10px;
 }
-.fa-globe, .fa-gear, .fa-display {
-    color: #5b9aff;
-    background-color: rgba(28, 86, 212, 0.5);
+.footer-section .projects > div > i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     width: 40px;
     height: 40px;
-    padding-left: 11px;
-    padding-top: 11px;
-    border-radius: 15px;
-    margin-left: 15px;
-    margin-top: 10px;
-   filter: drop-shadow(0 0 8px rgba(28, 86, 212, 0.8))
-   brightness(2);
-}
-.fa-gear {
-    padding-left: 11.5px;
-    padding-top: 12px;
-}
-.fa-display {
-    padding-left: 10.3px;
-    padding-top: 12px;
+    padding: 0;
+    margin: 10px 0 0 15px;
+
+    border-radius: 10px;
+    border: 1px solid rgba(28, 86, 212, 0.55);
+    background-color: #071629;
+
+    color: #45a4ff;
+    font-size: 22px;
+    text-shadow: 0 0 8px rgba(46, 145, 255, 0.85);
+    filter: none;
 }
 .project-4, .project-5, .project-6 {
     border: none ;
     mask-image: none;
     background-color:#101e32;
     border-radius: 20px;
-    height: 200px;
+    height: auto;
+    min-height: 200px;
+    padding-bottom: 15px;
+    align-self: start;
 }
 .project-4 > h3, .project-5 > h3, .project-6 > h3 {
     font-size: 1.2em;
@@ -147,7 +148,7 @@
 }
 @media (max-width: 870px) {
     .project-4, .project-5, .project-6 {
-        width: 50%;
+        width: calc(100% - 40px);
     }
     .techStack-section > div > div > h1 {
         font-size: 1.5em;
@@ -156,6 +157,32 @@
        width: 300px;
     }
 
+}
+@media (min-width: 600px) and (max-width: 870px) {
+    .footer-section .projects {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .footer-section .projects > div {
+        width: 100%;
+        height: auto;
+        min-height: 200px;
+        margin: 0;
+        padding-bottom: 15px;
+    }
+
+    .footer-section .projects > div:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc((100% - 20px) / 2);
+    }
+
+    .footer-section .projects > div > p {
+        max-width: none;
+        margin-right: 15px;
+    }
 }
 .techStack-section > div > p, h1 {
     color: var(--text-color);
