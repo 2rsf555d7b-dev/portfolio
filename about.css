@@ -11,7 +11,8 @@
 }
 .about-hero {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    padding: 55px 0 70px;
+    align-items: center;
+    padding: 40px 0 70px;
 }
 
 .about-hello {
@@ -24,23 +25,34 @@
 .about-bernovskyi {
     font-size: clamp(5px, 14vw, 48px);
 }
-.viewMyProjects {
-    margin-bottom: 350px;
+.about-hero .description {
+    color: #b8c4d3;
+    opacity: 0.8;
 }
-.my-photo3d {
-   position: relative;
-    width: min(100%, 550px);
-    aspect-ratio: 4 / 5;
-    justify-self: end;
-    perspective: 1000px;
-    margin-right: min(70px, 16vw, 300px);
+
+.about-her .viewMyProjects {
+    margin-bottom: 0;
 }
-.about-my-photo {
-    margin-top: -200px;
-    overflow: hidden;
+
+.about-hero .my-photo3d {
+    width: min(100%, 600px);
+    aspect-ratio: 1448 / 1086;
+    margin: 0;
+    justify-self: center;
+}
+
+.about-hero .about-my-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: none;
+    margin: 0;
     filter: brightness(0.8);
-    position: relative;
-     mask-image: radial-gradient(
+    pointer-events: none;
+
+    mask-image: radial-gradient(
         ellipse at center,
         black 40%,
         transparent 85%
@@ -54,33 +66,32 @@
 }
 
 @media (max-width: 870px) {
-    .viewMyProjects {
-        margin-bottom: -350px;
-    }
-    .my-photo3d {
-        justify-self: center;
-        margin-left: -100px;
+    .about-hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
     }
 }
+
 @media (max-width: 420px) {
-    .my-photo3d {
+    .about-hero .my-photo3d {
         display: none;
     }
-    .about-my-photo {
-        display: none;
-    }
+
     .about-bernovskyi {
         font-size: 2.7em;
     }
+
     .about-daniel1 {
         font-size: 2.7em;
     }
-    .viewMyProjects {
-        margin-bottom: 350px;
-    }
 }
+
 .footer-section {
-    margin-top: -300px;
+    margin-top: 0;
+}
+
+.footer-section > .featured-projects {
+    margin-top: 0;
 }
 .description1 {
     color: var(--text-color);
