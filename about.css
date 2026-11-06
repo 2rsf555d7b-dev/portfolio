@@ -5,9 +5,9 @@
     --border-color: #1c56d4;
 }
 .about {
-    border-bottom: 1px solid #1c56d4;
+    border-bottom: 1px solid #4d8dff;
     padding-bottom: 2px;
-    color: #1c56d4;;
+    color: #4d8dff;
 }
 .about-hero {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -92,6 +92,8 @@
 
 .footer-section > .featured-projects {
     margin-top: 0;
+    color: #b8c4d3;
+    opacity: 1;
 }
 .description1 {
     color: var(--text-color);
