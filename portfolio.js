@@ -211,3 +211,72 @@ if (techStack && moreToolsButton) {
     techStack.classList.add('is-ready');
     moreToolsButton.hidden = false;
 }
+// Движение точки в секции How I Work.
+const processSteps = document.querySelector('.about-process__steps');
+
+if (processSteps) {
+    const track = processSteps.querySelector('.about-process__track');
+    const dot = processSteps.querySelector('.about-process__dot');
+    const numbers = processSteps.querySelectorAll('.about-process__number');
+
+    const mobileLayout = window.matchMedia('(max-width: 599px)');
+    const reducedMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+    );
+
+    let dotAnimation;
+
+    function updateProcessAnimation() {
+        if (!track || !dot || numbers.length !== 3) return;
+
+        dotAnimation?.cancel();
+
+        const container = processSteps.getBoundingClientRect();
+        const first = numbers[0].getBoundingClientRect();
+        const last = numbers[2].getBoundingClientRect();
+        const isMobile = mobileLayout.matches;
+
+        // Соединяем центры первого и третьего номеров.
+        track.style.left = `${first.left - container.left + first.width / 2}px`;
+        track.style.top = `${first.top - container.top + first.height / 2}px`;
+        track.style.right = 'auto';
+        track.style.bottom = 'auto';
+
+        track.style.width = isMobile
+            ? '1px'
+            : `${last.left + last.width / 2 - first.left - first.width / 2}px`;
+
+        track.style.height = isMobile
+            ? `${last.top + last.height / 2 - first.top - first.height / 2}px`
+            : '1px';
+
+        // При настройке «уменьшить движение» оставляем точку неподвижной.
+        if (reducedMotion.matches) return;
+
+        const frames = isMobile
+            ? [
+                { left: '50%', top: '0%' },
+                { left: '50%', top: '100%' }
+            ]
+            : [
+                { left: '0%', top: '50%' },
+                { left: '100%', top: '50%' }
+            ];
+
+        dotAnimation = dot.animate(frames, {
+            duration: 8000,
+            iterations: Infinity,
+            easing: 'linear'
+        });
+    }
+
+    const processResizeObserver = new ResizeObserver(
+        updateProcessAnimation
+    );
+
+    processResizeObserver.observe(processSteps);
+    mobileLayout.addEventListener('change', updateProcessAnimation);
+    reducedMotion.addEventListener('change', updateProcessAnimation);
+
+    updateProcessAnimation();
+}

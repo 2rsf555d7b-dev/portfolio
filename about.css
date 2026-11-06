@@ -352,7 +352,7 @@
 .about-cta,
 .about-footer {
     width: calc(100% - 40px);
-    max-width: 1200px;
+    max-width: none;
     margin-inline: auto;
     color: var(--text-color);
 }
