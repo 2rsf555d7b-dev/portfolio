@@ -175,3 +175,90 @@
         padding: 22px;
     }
 }
+.skills-tools {
+    margin-top: 52px;
+}
+
+.skills-tools__title {
+    margin: 0 0 24px;
+    color: var(--text-color);
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.2;
+}
+
+.skills-tools__title span {
+    color: #1263ff;
+}
+
+.skills-tools__grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.skills-tool {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 0;
+    padding: 22px 12px;
+
+    border: 1px solid #245b94;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #101e32, #07111e);
+    text-align: center;
+}
+
+.skills-tool img {
+    display: block;
+    flex-shrink: 0;
+
+    width: 44px;
+    height: 44px;
+    margin-bottom: 14px;
+    object-fit: contain;
+}
+
+.skills-tool__github {
+    filter: brightness(0) invert(1);
+}
+
+.skills-tool h3 {
+    margin: 0 0 6px;
+    color: var(--text-color);
+    font-size: 18px;
+    line-height: 1.3;
+}
+
+.skills-tool p {
+    margin: 0;
+    color: #c6d0de;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Планшет */
+
+@media (max-width: 1023px) {
+    .skills-tools__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Телефон */
+
+@media (max-width: 599px) {
+    .skills-tools {
+        margin-top: 36px;
+    }
+
+    .skills-tools__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+}
