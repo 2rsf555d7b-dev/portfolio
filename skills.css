@@ -3,3 +3,54 @@
     border-bottom: 1px solid #4d8dff;
     padding-bottom: 2px;
 }
+.skills-section {
+    width: calc(100% - 40px);
+    margin-inline: auto;
+    padding-top: 56px;
+    padding-bottom: 48px;
+}
+
+.skills-intro {
+    margin-bottom: 40px;
+}
+
+.skills-intro__eyebrow {
+    margin: 0 0 12px;
+    color: #5caaff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.skills-intro .skills-intro__title {
+    margin: 0;
+    color: var(--text-color);
+    font-size: clamp(32px, 4.5vw, 56px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.skills-intro__title span {
+    display: block;
+    color: #1263ff;
+}
+
+.skills-intro__description {
+    max-width: 850px;
+    margin: 16px 0 0;
+    color: #b8c4d3;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+@media (max-width: 599px) {
+    .skills-section {
+        padding-top: 36px;
+        padding-bottom: 36px;
+    }
+
+    .skills-intro {
+        margin-bottom: 28px;
+    }
+}
