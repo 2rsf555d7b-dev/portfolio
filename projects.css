@@ -3,3 +3,278 @@
     border-bottom: 1px solid #4d8dff;
     padding-bottom: 2px;
 }
+.projects-section {
+    width: calc(100% - 40px);
+    margin-inline: auto;
+    padding-top: 56px;
+    padding-bottom: 48px;
+}
+
+.projects-intro {
+    margin-bottom: 40px;
+}
+
+.projects-intro__eyebrow {
+    margin: 0 0 12px;
+    color: #4d8dff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.projects-intro .projects-intro__title {
+    margin: 0;
+    color: var(--text-color);
+    font-size: clamp(32px, 4.5vw, 56px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.projects-intro__title span {
+    display: block;
+    color: #1263ff;
+}
+
+.projects-intro__description {
+    max-width: 850px;
+    margin: 16px 0 0;
+    color: #b8c4d3;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+@media (max-width: 599px) {
+    .projects-section {
+        padding-top: 36px;
+        padding-bottom: 36px;
+    }
+
+    .projects-intro {
+        margin-bottom: 28px;
+    }
+}
+.project-list {
+    display: grid;
+    gap: 24px;
+}
+
+.project-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(20px, 3vw, 36px);
+    padding: 20px;
+
+    border: 1px solid #245b94;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #101e32, #07111e);
+    color: var(--text-color);
+}
+
+/* Изображение и надпись по центру */
+
+.project-card__preview {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    place-items: center;
+
+    min-width: 0;
+    min-height: 230px;
+    aspect-ratio: 16 / 9;
+    padding: 20px;
+    overflow: hidden;
+
+    border: 1px solid #294e75;
+    border-radius: 14px;
+    background: #07111e;
+    text-align: center;
+}
+
+.project-card__preview img {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-card__preview::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+
+    background: linear-gradient(
+        180deg,
+        rgb(2 8 18 / 15%),
+        rgb(2 8 18 / 58%) 50%,
+        rgb(2 8 18 / 20%)
+    );
+}
+
+.project-card__preview-copy strong {
+    display: block;
+    color: #fff;
+    font-size: clamp(28px, 3.4vw, 46px);
+    line-height: 1.15;
+    text-shadow: 0 2px 12px #000;
+}
+
+.project-card__preview-copy strong::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 2px;
+    margin: 12px auto;
+    background: #45caff;
+}
+
+.project-card--aurora .project-card__preview-copy strong::after {
+    background: #e8bd70;
+}
+
+.project-card__preview-copy span {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.5;
+    text-shadow: 0 2px 8px #000;
+}
+
+/* Описание проекта */
+
+.project-card__content {
+    min-width: 0;
+}
+
+.project-card__category {
+    margin: 0 0 8px;
+    color: #5caaff;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.project-card h2 {
+    margin: 0 0 12px;
+    color: var(--text-color);
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.2;
+}
+
+.project-card__description {
+    max-width: 520px;
+    margin: 0;
+    color: #c6d0de;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Технологии */
+
+.project-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 18px 0 24px;
+    padding: 0;
+    list-style: none;
+}
+
+.project-card__tags li {
+    padding: 5px 12px;
+    border-radius: 10px;
+    background: #1a2d45;
+    color: #e1eaf5;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Кнопки */
+
+.project-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.project-card .project-card__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 44px;
+    margin: 0;
+    padding: 10px 20px;
+
+    border: 1px solid #8095af;
+    border-radius: 14px;
+    background: transparent;
+    color: #f0f8ff;
+
+    font: inherit;
+    font-size: 15px;
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+.project-card .project-card__button--primary {
+    border-color: #2874f0;
+    background: #064bd8;
+}
+
+.project-card__button svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.project-card__button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.project-card__note {
+    margin: 12px 0 0;
+    color: #aebdd0;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Вертикальная раскладка */
+
+@media (max-width: 767px) {
+    .project-card {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .project-card__preview {
+        min-height: 0;
+    }
+}
+
+/* Небольшие телефоны */
+
+@media (max-width: 420px) {
+    .project-card {
+        padding: 14px;
+        gap: 20px;
+    }
+
+    .project-card__preview {
+        padding: 16px;
+        aspect-ratio: 4 / 3;
+    }
+
+    .project-card .project-card__button {
+        padding-inline: 16px;
+    }
+}
