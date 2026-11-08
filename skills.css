@@ -1,3 +1,6 @@
+.main {
+    display: flow-root;
+}
 .header1 .nav-skills {
     color: #4d8dff;
     border-bottom: 1px solid #4d8dff;
@@ -262,14 +265,14 @@
         gap: 12px;
     }
 }
-work-checks {
+.work-checks {
     display: grid;
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
     align-items: center;
     gap: 32px;
 
     width: calc(100% - 40px);
-    margin: 52px auto 48px;
+    margin: 0px auto 48px;
     padding: 28px 32px;
 
     border: 1px solid #286291;
