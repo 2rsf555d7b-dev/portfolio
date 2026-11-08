@@ -468,8 +468,8 @@ font-family: var(--font-name);
 }
 
  .project-1 {
-   background-image:url(img/azure-hero.png);
-   background-image: image-set(url(img/azure-hero.webp) type("image/webp"), url(img/azure-hero.png) type("image/png"));
+   background-image:url(/portfolio/img/azure-hero.png);
+   background-image: image-set(url(/portfolio/img/azure-hero.webp) type("image/webp"), url(/portfolio/img/azure-hero.png) type("image/png"));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -479,8 +479,8 @@ font-family: var(--font-name);
     filter:brightness(0.5);
 }
 .project-2 {
-    background-image: url(img/aurora-hero.png);
-    background-image: image-set(url(img/aurora-hero.webp) type("image/webp"), url(img/aurora-hero.png) type("image/png"));
+    background-image: url(/portfolio/img/aurora-hero.png);
+    background-image: image-set(url(/portfolio/img/aurora-hero.webp) type("image/webp"), url(/portfolio/img/aurora-hero.png) type("image/png"));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -490,8 +490,8 @@ font-family: var(--font-name);
     filter:brightness(0.5);
 }
 .project-3 {
-    background-image: url(img/particle-world-background.png);
-    background-image: image-set(url(img/particle-world-background.webp) type("image/webp"), url(img/particle-world-background.png) type("image/png"));
+    background-image: url(/portfolio/img/particle-world-background.png);
+    background-image: image-set(url(/portfolio/img/particle-world-background.webp) type("image/webp"), url(/portfolio/img/particle-world-background.png) type("image/png"));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
