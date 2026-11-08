@@ -262,3 +262,109 @@
         gap: 12px;
     }
 }
+work-checks {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 32px;
+
+    width: calc(100% - 40px);
+    margin: 52px auto 48px;
+    padding: 28px 32px;
+
+    border: 1px solid #286291;
+    border-radius: 18px;
+    background: linear-gradient(110deg, #091d2e, #061421);
+    box-shadow: inset 0 0 16px rgb(22 135 255 / 6%);
+}
+
+/* Заголовок и описание слева */
+
+.work-checks__content {
+    min-width: 0;
+}
+
+.work-checks__title {
+    margin: 0 0 10px;
+    color: var(--text-color);
+    font-size: clamp(26px, 3vw, 36px);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.work-checks__title span {
+    color: #1263ff;
+}
+
+.work-checks__description {
+    max-width: 42ch;
+    margin: 0;
+    color: #c6d0de;
+    font-size: clamp(16px, 1.4vw, 18px);
+    line-height: 1.5;
+}
+
+/* Список справа и разделительная линия */
+
+.work-checks__list {
+    display: grid;
+    align-content: center;
+    align-self: stretch;
+    gap: 12px;
+
+    min-width: 0;
+    margin: 0;
+    padding: 0 0 0 32px;
+
+    border-left: 1px solid #286291;
+    list-style: none;
+}
+
+.work-checks__list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+
+    color: var(--text-color);
+    font-size: clamp(16px, 1.4vw, 18px);
+    line-height: 1.5;
+}
+
+/* Синие галочки */
+
+.work-checks__icon {
+    display: block;
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+
+    fill: none;
+    stroke: #1687ff;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* На узких экранах части располагаются друг под другом */
+
+@media (max-width: 767px) {
+    .work-checks {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+        padding: 22px;
+    }
+
+    .work-checks__list {
+        padding: 20px 0 0;
+        border-left: 0;
+        border-top: 1px solid #286291;
+    }
+}
+
+@media (max-width: 599px) {
+    .work-checks {
+        margin-top: 36px;
+        margin-bottom: 36px;
+    }
+}
