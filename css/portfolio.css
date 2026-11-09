@@ -737,6 +737,10 @@ font-family: var(--font-name);
     font-size: 0.8em;
     filter: brightness(0.6);
 }
+.contact-section .fa-instagram {
+    color: var(--text-color);
+    margin-top: 30px;
+}
 .line {
     border: 0.1px solid var(--text-color);
     grid-column: 1 / -1;
