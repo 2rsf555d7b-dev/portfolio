@@ -468,8 +468,8 @@ font-family: var(--font-name);
 }
 
  .project-1 {
-   background-image:url(/portfolio/img/azure-hero.png);
-   background-image: image-set(url(/portfolio/img/azure-hero.webp) type("image/webp"), url(/portfolio/img/azure-hero.png) type("image/png"));
+   background-image:url(../img/azure-hero.png);
+   background-image: image-set(url(../img/azure-hero.webp) type("image/webp"), url(../img/azure-hero.png) type("image/png"));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -479,8 +479,8 @@ font-family: var(--font-name);
     filter:brightness(0.5);
 }
 .project-2 {
-    background-image: url(/portfolio/img/aurora-hero.png);
-    background-image: image-set(url(/portfolio/img/aurora-hero.webp) type("image/webp"), url(/portfolio/img/aurora-hero.png) type("image/png"));
+    background-image: url(../img/aurora-hero.png);
+    background-image: image-set(url(../img/aurora-hero.webp) type("image/webp"), url(../img/aurora-hero.png) type("image/png"));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -490,8 +490,8 @@ font-family: var(--font-name);
     filter:brightness(0.5);
 }
 .project-3 {
-    background-image: url(/portfolio/img/particle-world-background.png);
-    background-image: image-set(url(/portfolio/img/particle-world-background.webp) type("image/webp"), url(/portfolio/img/particle-world-background.png) type("image/png"));
+    background-image: url(../img/particle-world-background.png);
+    background-image: image-set(url(../img/particle-world-background.webp) type("image/webp"), url(../img/particle-world-background.png) type("image/png"));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -922,4 +922,55 @@ font-family: var(--font-name);
         animation: none;
     }
 }
+@media (min-width: 871px) and (max-width: 1023px) {
+    .home-page .hero {
+        grid-template-columns: minmax(0, 1fr);
+    }
 
+    .home-page .hero .my-photo3d {
+        width: min(80%, 340px);
+        justify-self: center;
+        margin: 50px 0 0;
+    }
+
+    .home-page .hero .background {
+        height: 340px;
+        width: min(100%, 700px);
+        inset: 0% -30% 0% 0%;
+        justify-self: center;
+    }
+
+    .home-page .hero .frame-two {
+        width: min(90%, 260px);
+        inset: 0;
+    }
+}
+
+/* Отступ и читаемость подписи Featured Projects */
+
+.home-page .featured-work .featured-projects {
+    margin-top: 20px;
+    color: #b8c4d3;
+    opacity: 1;
+}
+
+/* Читаемость описания и подписей в Hero */
+
+.home-page .hero .description,
+.home-page .hero .skills small {
+    color: #b8c4d3;
+    opacity: 1;
+}
+
+/* Читаемость текста в нижней части страницы */
+
+.home-page .contact-section .line {
+    filter: none;
+    border-color: #718092;
+}
+
+.home-page .contact-section .line p {
+    color: #b8c4d3;
+    opacity: 1;
+    filter: none;
+}
