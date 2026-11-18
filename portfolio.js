@@ -466,7 +466,9 @@ if (processSteps) {
 
     const root = document.documentElement;
 
-    if (!root.classList.contains('about-motion-pending')) return;
+    if (!window.matchMedia) return;
+
+    const playIntro = root.classList.contains('about-motion-pending');
 
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const animations = new Set();
