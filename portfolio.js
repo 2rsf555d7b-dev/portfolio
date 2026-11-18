@@ -295,7 +295,7 @@ if (processSteps) {
     let observer = null;
 
     function onMotionPreferenceChange(event) {
-        /* Обновляем canvas, чтобы частицы остановились или запустились. */
+        
         window.dispatchEvent(new Event('resize'));
 
         if (event.matches) {
