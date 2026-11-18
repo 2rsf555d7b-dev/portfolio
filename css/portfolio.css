@@ -586,9 +586,12 @@ font-family: var(--font-name);
     border: none;
     border-radius: 20px;
     height: 25px;
-    cursor: pointer;
     font-family: var(--font-name);
-     color: var(--text-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9em;
 }
 .css {
     color: white;
@@ -596,9 +599,12 @@ font-family: var(--font-name);
     background-color: var(--main-color);
     border: none;
     border-radius: 20px;
-    cursor: pointer;
     font-family: var(--font-name);
     color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9em;
 }
 .js {
     color: white;
@@ -606,11 +612,14 @@ font-family: var(--font-name);
     background-color: var(--main-color);
     border: none;
     border-radius: 20px;
-    cursor: pointer;
     font-family: "Google Sans", sans-serif;
      color: var(--text-color);
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9em;
 }
-.html:hover, .css:hover, .js:hover, .viewMyProjects:hover, .contactMe:hover {
+.viewMyProjects:hover, .contactMe:hover {
     filter: brightness(0.8);
 }
 @media (max-width: 870px) {
