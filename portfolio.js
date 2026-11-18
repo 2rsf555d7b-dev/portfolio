@@ -280,3 +280,157 @@ if (processSteps) {
 
     updateProcessAnimation();
 }
+
+/* Анимация главной страницы */
+
+(() => {
+    const root = document.documentElement;
+
+    if (!document.body.classList.contains('home-page') || !window.matchMedia) {
+        return;
+    }
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const animations = new Set();
+    let observer = null;
+
+    function onMotionPreferenceChange(event) {
+        /* Обновляем canvas, чтобы частицы остановились или запустились. */
+        window.dispatchEvent(new Event('resize'));
+
+        if (event.matches) {
+            root.classList.remove('home-motion-pending');
+            animations.forEach(animation => animation.cancel());
+            animations.clear();
+
+            if (observer) observer.disconnect();
+        }
+    }
+
+    if (typeof reducedMotion.addEventListener === 'function') {
+        reducedMotion.addEventListener('change', onMotionPreferenceChange);
+    } else if (typeof reducedMotion.addListener === 'function') {
+        reducedMotion.addListener(onMotionPreferenceChange);
+    }
+
+    if (!root.classList.contains('home-motion-pending')) return;
+
+    if (reducedMotion.matches || typeof Element.prototype.animate !== 'function') {
+        root.classList.remove('home-motion-pending');
+        return;
+    }
+
+    function animateElement(element, fromTransform, duration, delay) {
+        if (!element) return;
+
+        const opacity = getComputedStyle(element).opacity;
+
+        const animation = element.animate(
+            [
+                { opacity: 0, transform: fromTransform },
+                { opacity: opacity, transform: 'none' }
+            ],
+            {
+                duration: duration,
+                delay: delay,
+                easing: 'cubic-bezier(.2, .7, .2, 1)',
+                fill: 'both'
+            }
+        );
+
+        animations.add(animation);
+
+        animation.addEventListener('finish', () => {
+            animations.delete(animation);
+            animation.cancel();
+        }, { once: true });
+    }
+
+    root.classList.remove('home-motion-pending');
+
+    try {
+        /* Вступление при открытии страницы */
+
+        const entrance = [
+            ['.header', 'translateY(-12px)', 650, 40],
+            ['.hero-content > .hello', 'translateY(22px)', 650, 160],
+            ['.hero-content > .daniel1', 'translateY(22px)', 720, 240],
+            ['.hero-content > .bernovskyi', 'translateY(22px)', 720, 360],
+            ['.hero-content > .webDeveloper', 'translateY(22px)', 650, 480],
+            ['.hero-content > .description', 'translateY(22px)', 650, 560],
+            ['.hero-content > .buttons', 'translateY(22px)', 650, 680],
+            ['.hero .my-photo3d', 'translateX(28px) scale(.97)', 950, 370],
+            ['.hero-particles', 'none', 800, 1000]
+        ];
+
+        entrance.forEach(([selector, transform, duration, delay]) => {
+            animateElement(
+                document.querySelector(selector),
+                transform,
+                duration,
+                delay
+            );
+        });
+
+        /* Блоки с навыками появляются по очереди */
+
+        document.querySelectorAll('.hero-content .skills > span')
+            .forEach((element, index) => {
+                animateElement(
+                    element,
+                    'translate(16px, 12px)',
+                    650,
+                    790 + index * 80
+                );
+            });
+
+        /* Появление элементов при прокрутке */
+
+        if ('IntersectionObserver' in window) {
+            observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+
+                    const element = entry.target;
+                    observer.unobserve(element);
+
+                    const delay = Number(element.dataset.homeMotionDelay || 0);
+                    animateElement(element, 'translateY(24px)', 720, delay);
+                });
+            }, {
+                threshold: 0.08,
+                rootMargin: '0px 0px -8% 0px'
+            });
+
+            const cards = document.querySelectorAll(
+                '.featured-work .projects > div'
+            );
+
+            cards.forEach((element, index) => {
+                element.dataset.homeMotionDelay = String((index % 3) * 110);
+                observer.observe(element);
+            });
+
+            [
+                '.featured-work .featured-projects',
+                '.featured-work .some',
+                '.contact-section .lets-work',
+                '.contact-section .icons'
+            ].forEach((selector, index) => {
+                const element = document.querySelector(selector);
+
+                if (!element) return;
+
+                element.dataset.homeMotionDelay = String((index % 2) * 100);
+                observer.observe(element);
+            });
+        }
+    } catch (error) {
+        animations.forEach(animation => animation.cancel());
+        animations.clear();
+
+        if (observer) observer.disconnect();
+
+        console.error('Home animation could not start:', error);
+    }
+})();

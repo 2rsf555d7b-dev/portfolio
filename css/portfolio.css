@@ -978,3 +978,23 @@ font-family: var(--font-name);
     opacity: 1;
     filter: none;
 }
+/* Начальное состояние вступления на главной странице */
+
+html.home-motion-pending .home-page .header,
+html.home-motion-pending .home-page .hero-content > .hello,
+html.home-motion-pending .home-page .hero-content > .daniel1,
+html.home-motion-pending .home-page .hero-content > .bernovskyi,
+html.home-motion-pending .home-page .hero-content > .webDeveloper,
+html.home-motion-pending .home-page .hero-content > .description,
+html.home-motion-pending .home-page .hero-content > .buttons,
+html.home-motion-pending .home-page .hero-content .skills > span,
+html.home-motion-pending .home-page .hero .my-photo3d,
+html.home-motion-pending .home-page .hero-particles {
+    opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-page .hero-particles {
+        display: none;
+    }
+}
