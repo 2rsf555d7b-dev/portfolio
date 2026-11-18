@@ -656,3 +656,22 @@
         gap: 20px;
     }
 }
+html.about-motion-pending .about-page :is(
+    .header,
+    .about-hero .hello,
+    .about-hero .daniel1,
+    .about-hero .bernovskyi,
+    .about-hero .description,
+    .about-hero .buttons,
+    .about-hero .my-photo3d,
+    .footer-section .featured-projects,
+    .footer-section .some,
+    .footer-section .description1,
+    .footer-section .projects > div,
+    .techStack-section,
+    .about-process,
+    .about-cta,
+    .about-footer
+) {
+    opacity: 0;
+}

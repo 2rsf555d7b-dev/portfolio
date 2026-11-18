@@ -458,3 +458,141 @@ if (processSteps) {
         console.error('Home animation could not start:', error);
     }
 })();
+
+/* Анимация страницы About */
+
+(() => {
+    if (!document.body.classList.contains('about-page')) return;
+
+    const root = document.documentElement;
+
+    if (!root.classList.contains('about-motion-pending')) return;
+
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const animations = new Set();
+    const scrollAnimations = new Map();
+    let observer;
+
+    function stopAnimations() {
+        root.classList.remove('about-motion-pending');
+
+        if (observer) observer.disconnect();
+
+        animations.forEach(animation => animation.cancel());
+        animations.clear();
+        scrollAnimations.clear();
+    }
+
+    motion.addEventListener('change', event => {
+        if (event.matches) stopAnimations();
+    });
+
+    if (motion.matches || typeof Element.prototype.animate !== 'function') {
+        stopAnimations();
+        return;
+    }
+
+    function prepare(element, transform, duration, delay = 0) {
+        const opacity = getComputedStyle(element).opacity;
+
+        const animation = element.animate(
+            [
+                { opacity: 0, transform: transform },
+                { opacity: opacity, transform: 'none' }
+            ],
+            {
+                duration,
+                delay,
+                easing: 'cubic-bezier(.2, .7, .2, 1)',
+                fill: 'both'
+            }
+        );
+
+        animations.add(animation);
+
+        animation.addEventListener('finish', () => {
+            animations.delete(animation);
+            scrollAnimations.delete(element);
+            animation.cancel();
+        }, { once: true });
+
+        return animation;
+    }
+
+    root.classList.remove('about-motion-pending');
+
+    try {
+        /* Появление при открытии страницы */
+
+        [
+            ['.header', 'translateY(-12px)', 650, 40],
+            ['.about-hero .hello', 'translateY(22px)', 650, 160],
+            ['.about-hero .daniel1', 'translateY(22px)', 720, 240],
+            ['.about-hero .bernovskyi', 'translateY(22px)', 720, 360],
+            ['.about-hero .description', 'translateY(22px)', 650, 480],
+            ['.about-hero .buttons', 'translateY(22px)', 650, 600],
+            ['.about-hero .my-photo3d', 'translateX(28px) scale(.97)', 950, 370]
+        ].forEach(([selector, transform, duration, delay]) => {
+            const element = document.querySelector(selector);
+
+            if (element) {
+                prepare(element, transform, duration, delay);
+            }
+        });
+
+        /* Появление при прокрутке */
+
+        if ('IntersectionObserver' in window) {
+            observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+
+                    observer.unobserve(entry.target);
+
+                    const animation = scrollAnimations.get(entry.target);
+
+                    if (animation) {
+                        animation.play();
+                    }
+                });
+            }, {
+                threshold: 0,
+                rootMargin: '0px'
+            });
+
+            document.querySelectorAll(
+                '.footer-section .featured-projects, ' +
+                '.footer-section .some, ' +
+                '.footer-section .description1, ' +
+                '.footer-section .projects > div, ' +
+                '.techStack-section, ' +
+                '.about-process, ' +
+                '.about-cta, ' +
+                '.about-footer'
+            ).forEach(element => {
+                const animation = prepare(
+                    element,
+                    'translateY(20px)',
+                    650
+                );
+
+                animation.pause();
+                scrollAnimations.set(element, animation);
+
+                observer.observe(element);
+            });
+
+            document.addEventListener('focusin', event => {
+                scrollAnimations.forEach((animation, element) => {
+                    if (element.contains(event.target)) {
+                        observer.unobserve(element);
+                        animation.finish();
+                    }
+                });
+            });
+        }
+    } catch (error) {
+        stopAnimations();
+        console.error('About animation could not start:', error);
+    }
+})();
