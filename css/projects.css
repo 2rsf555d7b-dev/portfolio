@@ -442,3 +442,14 @@
         gap: 20px;
     }
 }
+html.projects-motion-pending .projects-page :is(
+    .header,
+    .projects-intro__eyebrow,
+    .projects-intro__title,
+    .projects-intro__description,
+    .project-card,
+    .projects-cta,
+    .projects-footer
+) {
+    opacity: 0;
+}

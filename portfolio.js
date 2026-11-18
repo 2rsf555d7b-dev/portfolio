@@ -603,3 +603,143 @@ if (processSteps) {
         console.error('About animation could not start:', error);
     }
 })();
+
+
+/* Анимация страницы Projects */
+
+(() => {
+    if (!document.body.classList.contains('projects-page')) return;
+
+    const root = document.documentElement;
+
+    if (!window.matchMedia) return;
+
+    const playIntro = root.classList.contains('projects-motion-pending');
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const animations = new Set();
+    const scrollAnimations = new Map();
+
+    let observer;
+
+    function stopAnimations() {
+        root.classList.remove('projects-motion-pending');
+
+        if (observer) observer.disconnect();
+
+        animations.forEach(animation => animation.cancel());
+        animations.clear();
+        scrollAnimations.clear();
+    }
+
+    motion.addEventListener('change', event => {
+        if (event.matches) stopAnimations();
+    });
+
+    if (motion.matches || typeof Element.prototype.animate !== 'function') {
+        stopAnimations();
+        return;
+    }
+
+    function prepare(element, transform, duration, delay = 0) {
+        const opacity = getComputedStyle(element).opacity;
+
+        const animation = element.animate(
+            [
+                { opacity: 0, transform: transform },
+                { opacity: opacity, transform: 'none' }
+            ],
+            {
+                duration,
+                delay,
+                easing: 'cubic-bezier(.2, .7, .2, 1)',
+                fill: 'both'
+            }
+        );
+
+        animations.add(animation);
+
+        animation.addEventListener('finish', () => {
+            animations.delete(animation);
+            scrollAnimations.delete(element);
+            animation.cancel();
+        }, { once: true });
+
+        return animation;
+    }
+
+    root.classList.remove('projects-motion-pending');
+
+    try {
+        /* Появление при открытии страницы */
+
+        if (playIntro) {
+            [
+                ['.header', 'translateY(-12px)', 650, 40],
+                ['.projects-intro__eyebrow', 'translateY(22px)', 650, 160],
+                ['.projects-intro__title', 'translateY(22px)', 720, 240],
+                ['.projects-intro__description', 'translateY(22px)', 650, 400]
+            ].forEach(([selector, transform, duration, delay]) => {
+                const element = document.querySelector(selector);
+
+                if (element) {
+                    prepare(element, transform, duration, delay);
+                }
+            });
+        }
+
+        /* Появление при прокрутке */
+
+        if ('IntersectionObserver' in window) {
+            observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+
+                    observer.unobserve(entry.target);
+
+                    const animation = scrollAnimations.get(entry.target);
+
+                    if (animation) {
+                        animation.play();
+                    }
+                });
+            }, {
+                threshold: 0,
+                rootMargin: '0px'
+            });
+
+            document.querySelectorAll(
+                '.project-card, .projects-cta, .projects-footer'
+            ).forEach(element => {
+                if (
+                    !playIntro &&
+                    element.getBoundingClientRect().top < window.innerHeight
+                ) {
+                    return;
+                }
+
+                const animation = prepare(
+                    element,
+                    'translateY(20px)',
+                    650
+                );
+
+                animation.pause();
+                scrollAnimations.set(element, animation);
+
+                observer.observe(element);
+            });
+
+            document.addEventListener('focusin', event => {
+                scrollAnimations.forEach((animation, element) => {
+                    if (element.contains(event.target)) {
+                        observer.unobserve(element);
+                        animation.finish();
+                    }
+                });
+            });
+        }
+    } catch (error) {
+        stopAnimations();
+        console.error('Projects animation could not start:', error);
+    }
+})();
