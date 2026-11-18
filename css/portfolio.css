@@ -989,7 +989,12 @@ html.home-motion-pending .home-page .hero-content > .description,
 html.home-motion-pending .home-page .hero-content > .buttons,
 html.home-motion-pending .home-page .hero-content .skills > span,
 html.home-motion-pending .home-page .hero .my-photo3d,
-html.home-motion-pending .home-page .hero-particles {
+html.home-motion-pending .home-page .hero-particles,
+html.home-motion-pending .home-page .featured-work .featured-projects,
+html.home-motion-pending .home-page .featured-work .some,
+html.home-motion-pending .home-page .featured-work .projects > div,
+html.home-motion-pending .home-page .contact-section .lets-work,
+html.home-motion-pending .home-page .contact-section .icons {
     opacity: 0;
 }
 

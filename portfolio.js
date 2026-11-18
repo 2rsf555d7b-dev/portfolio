@@ -387,47 +387,68 @@ if (processSteps) {
         /* Появление элементов при прокрутке */
 
         if ('IntersectionObserver' in window) {
-            observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
+    const scrollAnimations = new Map();
 
-                    const element = entry.target;
-                    observer.unobserve(element);
+    observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
 
-                    const rect = element.getBoundingClientRect();
-                    if (rect.top < window.innerHeight && rect.bottom > 0) return;
+            observer.unobserve(entry.target);
 
-                    const delay = Number(element.dataset.homeMotionDelay || 0);
-                    animateElement(element, 'translateY(24px)', 720, delay);
-                });
-            }, {
-                threshold: 0,
-                rootMargin: '200px 0px 200px 0px'
-            });
+            const animation = scrollAnimations.get(entry.target);
 
-            const cards = document.querySelectorAll(
-                '.featured-work .projects > div'
-            );
+            if (animation) {
+                animation.play();
+            }
+        });
+    }, {
+        threshold: 0,
+        rootMargin: '0px'
+    });
 
-            cards.forEach((element, index) => {
-                element.dataset.homeMotionDelay = String((index % 3) * 110);
-                observer.observe(element);
-            });
+    document.querySelectorAll(
+        '.featured-work .featured-projects, ' +
+        '.featured-work .some, ' +
+        '.featured-work .projects > div, ' +
+        '.contact-section .lets-work, ' +
+        '.contact-section .icons'
+    ).forEach(element => {
+        const opacity = getComputedStyle(element).opacity;
 
+        const animation = element.animate(
             [
-                '.featured-work .featured-projects',
-                '.featured-work .some',
-                '.contact-section .lets-work',
-                '.contact-section .icons'
-            ].forEach((selector, index) => {
-                const element = document.querySelector(selector);
+                { opacity: 0, transform: 'translateY(20px)' },
+                { opacity: opacity, transform: 'none' }
+            ],
+            {
+                duration: 650,
+                easing: 'cubic-bezier(.2, .7, .2, 1)',
+                fill: 'both'
+            }
+        );
 
-                if (!element) return;
+        animation.pause();
+        animations.add(animation);
+        scrollAnimations.set(element, animation);
 
-                element.dataset.homeMotionDelay = String((index % 2) * 100);
-                observer.observe(element);
-            });
-        }
+        animation.addEventListener('finish', () => {
+            animations.delete(animation);
+            scrollAnimations.delete(element);
+            animation.cancel();
+        }, { once: true });
+
+        observer.observe(element);
+    });
+
+    document.addEventListener('focusin', event => {
+        scrollAnimations.forEach((animation, element) => {
+            if (element.contains(event.target)) {
+                observer.unobserve(element);
+                animation.finish();
+            }
+        });
+    });
+}
     } catch (error) {
         animations.forEach(animation => animation.cancel());
         animations.clear();
