@@ -526,22 +526,23 @@ if (processSteps) {
     try {
         /* Появление при открытии страницы */
 
-        [
-            ['.header', 'translateY(-12px)', 650, 40],
-            ['.about-hero .hello', 'translateY(22px)', 650, 160],
-            ['.about-hero .daniel1', 'translateY(22px)', 720, 240],
-            ['.about-hero .bernovskyi', 'translateY(22px)', 720, 360],
-            ['.about-hero .description', 'translateY(22px)', 650, 480],
-            ['.about-hero .buttons', 'translateY(22px)', 650, 600],
-            ['.about-hero .my-photo3d', 'translateX(28px) scale(.97)', 950, 370]
-        ].forEach(([selector, transform, duration, delay]) => {
-            const element = document.querySelector(selector);
+        if (playIntro) {
+    [
+        ['.header', 'translateY(-12px)', 650, 40],
+        ['.about-hero .hello', 'translateY(22px)', 650, 160],
+        ['.about-hero .daniel1', 'translateY(22px)', 720, 240],
+        ['.about-hero .bernovskyi', 'translateY(22px)', 720, 360],
+        ['.about-hero .description', 'translateY(22px)', 650, 480],
+        ['.about-hero .buttons', 'translateY(22px)', 650, 600],
+        ['.about-hero .my-photo3d', 'translateX(28px) scale(.97)', 950, 370]
+    ].forEach(([selector, transform, duration, delay]) => {
+        const element = document.querySelector(selector);
 
-            if (element) {
-                prepare(element, transform, duration, delay);
-            }
-        });
-
+        if (element) {
+            prepare(element, transform, duration, delay);
+        }
+    });
+}
         /* Появление при прокрутке */
 
         if ('IntersectionObserver' in window) {
@@ -572,7 +573,11 @@ if (processSteps) {
                 '.about-cta, ' +
                 '.about-footer'
             ).forEach(element => {
-                const animation = prepare(
+              if (!playIntro && element.getBoundingClientRect().top < window.innerHeight) {
+              return;
+            }
+
+               const animation = prepare(
                     element,
                     'translateY(20px)',
                     650
