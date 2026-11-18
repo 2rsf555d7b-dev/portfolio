@@ -394,12 +394,15 @@ if (processSteps) {
                     const element = entry.target;
                     observer.unobserve(element);
 
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) return;
+
                     const delay = Number(element.dataset.homeMotionDelay || 0);
                     animateElement(element, 'translateY(24px)', 720, delay);
                 });
             }, {
-                threshold: 0.08,
-                rootMargin: '0px 0px -8% 0px'
+                threshold: 0,
+                rootMargin: '200px 0px 200px 0px'
             });
 
             const cards = document.querySelectorAll(
