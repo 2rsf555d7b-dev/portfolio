@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script>
+    if (
+        window.matchMedia &&
+        !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+        document.documentElement.classList.add('skills-motion-pending');
+
+        window.setTimeout(() => {
+            document.documentElement.classList.remove('skills-motion-pending');
+        }, 2500);
+    }
+</script>
+
     <meta property="og:url" content="https://bernovskyi.com/skills.html">
 
     <meta
@@ -34,10 +47,10 @@
 
 <link rel="icon" type="image/svg+xml" href="img/D.svg">
     <link rel="stylesheet" href="css/portfolio.css">
-<link rel="stylesheet" href="css/skills.css">
+<link rel="stylesheet" href="css/skills.css?v=motion-1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
-<body>
+<body class="skills-page">
     <header class="header">
     <h1 class="daniel">DANIEL</h1>
 
@@ -329,6 +342,6 @@
         </nav>
     </div>
 </footer>
-<script src="portfolio.js" defer></script>
+<script src="portfolio.js?v=skills-1" defer></script>
 </body>
 </html>

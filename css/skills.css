@@ -602,3 +602,18 @@
         gap: 20px;
     }
 }
+html.skills-motion-pending .skills-page :is(
+    .header,
+    .skills-intro__eyebrow,
+    .skills-intro__title,
+    .skills-intro__description,
+    .skills-build__title,
+    .skill-card,
+    .skills-tools,
+    .work-checks,
+    .skills-examples,
+    .skills-cta,
+    .skills-footer
+) {
+    opacity: 0;
+}
